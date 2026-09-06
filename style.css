@@ -47,7 +47,7 @@ html {
 
 .hero,
 .section {
-  scroll-margin-top: 72px;
+  scroll-margin-top: 32px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -318,7 +318,6 @@ html[data-theme="light"] .icon-moon {
   font-size: .92rem;
   color: var(--text);
   margin: 0 0 1.2em;
-  margin-bottom: -14px;
 }
 
 .hero h1 {
@@ -441,10 +440,7 @@ html[data-theme="light"] .icon-moon {
 }
 
 .hero-scroll-cue {
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
+  display: none;
 }
 
 .hero-scroll-cue span {
