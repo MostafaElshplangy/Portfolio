@@ -136,7 +136,7 @@ ul {
 .footer-inner {
   max-width: var(--container);
   margin: 0 auto;
-  padding-inline: 24px;
+  padding-inline: 11px;
 }
 
 /* ============================================================
@@ -318,6 +318,7 @@ html[data-theme="light"] .icon-moon {
   font-size: .92rem;
   color: var(--text);
   margin: 0 0 1.2em;
+  margin-bottom: 14px;
 }
 
 .hero h1 {
