@@ -45,6 +45,11 @@ html {
   scroll-behavior: smooth;
 }
 
+.hero,
+.section {
+  scroll-margin-top: 72px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -310,9 +315,10 @@ html[data-theme="light"] .icon-moon {
 
 .eyebrow-plain {
   font-family: var(--font-mono);
-  font-size: .8rem;
-  color: var(--accent-2);
+  font-size: .92rem;
+  color: var(--text);
   margin: 0 0 1.2em;
+  margin-bottom: -14px;
 }
 
 .hero h1 {
