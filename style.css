@@ -519,16 +519,47 @@ html.js .reveal.in-view {
 }
 
 .photo-frame {
-  border: 1px solid var(--border);
+  position: relative;
   border-radius: var(--radius-m);
   overflow: hidden;
   aspect-ratio: 4/5;
+  padding: 2px;
+  /* Space for glowing border */
+  background: linear-gradient(135deg, var(--border), var(--accent-2), var(--accent));
+  background-size: 200% 200%;
+  animation: borderPulse 6s ease infinite;
+  transition: transform 0.3s ease;
 }
 
 .photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: calc(var(--radius-m) - 2px);
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.photo-frame:hover {
+  transform: translateY(-5px);
+}
+
+.photo-frame:hover img {
+  transform: scale(1.04);
+}
+
+@keyframes borderPulse {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .about-copy p {
@@ -920,11 +951,6 @@ html[data-theme="light"] .section-alt .skill-card {
   .about-grid {
     grid-template-columns: 1fr;
     gap: 32px;
-  }
-
-  .photo-frame {
-    max-width: 240px;
-    margin: 0 auto;
   }
 
   .contact-grid {
