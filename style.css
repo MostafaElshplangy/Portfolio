@@ -518,48 +518,66 @@ html.js .reveal.in-view {
   align-items: start;
 }
 
-.photo-frame {
+/* ============================================================
+   ANIMATED BLOB PHOTO FRAME
+   ============================================================ */
+.blob-frame {
   position: relative;
-  border-radius: var(--radius-m);
-  overflow: hidden;
-  aspect-ratio: 4/5;
-  padding: 2px;
-  /* Space for glowing border */
-  background: linear-gradient(135deg, var(--border), var(--accent-2), var(--accent));
-  background-size: 200% 200%;
-  animation: borderPulse 6s ease infinite;
-  transition: transform 0.3s ease;
+  width: 280px;
+  height: 320px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Morphing animated liquid border background */
+.blob-bg {
+  position: absolute;
+  inset: -8px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morphBlob 8s ease-in-out infinite alternate;
+  opacity: 0.85;
+  filter: blur(1px);
+}
+
+/* Photo container shaped like an organic blob */
+.blob-frame img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  border: 4px solid var(--bg-panel);
+  animation: morphBlob 8s ease-in-out infinite alternate-reverse;
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+.blob-frame:hover img {
+  transform: scale(1.03);
+}
+
+/* Continuous shape-shifting animation */
+@keyframes morphBlob {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+
+  100% {
+    border-radius: 50% 50% 30% 70% / 60% 40% 60% 40%;
+  }
 }
 
 .photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: calc(var(--radius-m) - 2px);
-  display: block;
-  transition: transform 0.5s ease;
-}
-
-.photo-frame:hover {
-  transform: translateY(-5px);
-}
-
-.photo-frame:hover img {
-  transform: scale(1.04);
-}
-
-@keyframes borderPulse {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 .about-copy p {
